@@ -152,6 +152,13 @@
       function botClick(){
         if (matrix_nums[1][1] === "-" && clicks === 1){
           onClick(5);
+        }else if (clicks === 1){
+          switch ((Math.random() * 4)|0) {
+            case 0: onClick(1); break;
+            case 1: onClick(3); break;
+            case 2: onClick(7); break;
+            case 3: onClick(9); break;
+          }
         }else if (!is_win && clicks !== 0){
           var priority = 0;
           var position = "00";
