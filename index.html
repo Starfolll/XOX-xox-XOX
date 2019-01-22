@@ -66,17 +66,23 @@
         H1 = document.getElementById("H1");
         P_ScoreX = document.getElementById("P_ScoreX");
         P_ScoreO = document.getElementById("P_ScoreO");
-        B_11 = document.getElementById("B_11"); B_11.onclick = function(){if(matrix_nums[0][0] === "-" || clicks === 9){onClick(1); botClick(1);}};
-        B_12 = document.getElementById("B_12"); B_12.onclick = function(){if(matrix_nums[0][1] === "-" || clicks === 9){onClick(2); botClick(2);}};
-        B_13 = document.getElementById("B_13"); B_13.onclick = function(){if(matrix_nums[0][2] === "-" || clicks === 9){onClick(3); botClick(3);}};
-        B_21 = document.getElementById("B_21"); B_21.onclick = function(){if(matrix_nums[1][0] === "-" || clicks === 9){onClick(4); botClick(4);}};
-        B_22 = document.getElementById("B_22"); B_22.onclick = function(){if(matrix_nums[1][1] === "-" || clicks === 9){onClick(5); botClick(5);}};
-        B_23 = document.getElementById("B_23"); B_23.onclick = function(){if(matrix_nums[1][2] === "-" || clicks === 9){onClick(6); botClick(6);}};
-        B_31 = document.getElementById("B_31"); B_31.onclick = function(){if(matrix_nums[2][0] === "-" || clicks === 9){onClick(7); botClick(7);}};
-        B_32 = document.getElementById("B_32"); B_32.onclick = function(){if(matrix_nums[2][1] === "-" || clicks === 9){onClick(8); botClick(8);}};
-        B_33 = document.getElementById("B_33"); B_33.onclick = function(){if(matrix_nums[2][2] === "-" || clicks === 9){onClick(9); botClick(9);}};
+        B_11 = document.getElementById("B_11"); B_11.onclick = function(){SetButtonsEvents(0,0,1)};
+        B_12 = document.getElementById("B_12"); B_12.onclick = function(){SetButtonsEvents(0,1,2)};
+        B_13 = document.getElementById("B_13"); B_13.onclick = function(){SetButtonsEvents(0,2,3)};
+        B_21 = document.getElementById("B_21"); B_21.onclick = function(){SetButtonsEvents(1,0,4)};
+        B_22 = document.getElementById("B_22"); B_22.onclick = function(){SetButtonsEvents(1,1,5)};
+        B_23 = document.getElementById("B_23"); B_23.onclick = function(){SetButtonsEvents(1,2,6)};
+        B_31 = document.getElementById("B_31"); B_31.onclick = function(){SetButtonsEvents(2,0,7)};
+        B_32 = document.getElementById("B_32"); B_32.onclick = function(){SetButtonsEvents(2,1,8)};
+        B_33 = document.getElementById("B_33"); B_33.onclick = function(){SetButtonsEvents(2,2,9)};
 
         matrix_buttons = [[B_11,B_12,B_13],[B_21,B_22,B_23],[B_31,B_32,B_33]];
+      }
+
+      function SetButtonsEvents(x,y,id){
+        if(matrix_nums[x][y] === "-" || clicks === 9){
+          onClick(id); botClick();
+        }
       }
 
       function onClick(id){
@@ -143,8 +149,10 @@
         }
       }
 
-      function botClick(id){
-        if (!is_win && clicks !== 0){
+      function botClick(){
+        if (matrix_nums[1][1] === "-" && clicks === 1){
+          onClick(5);
+        }else if (!is_win && clicks !== 0){
           var priority = 0;
           var position = "00";
 
@@ -258,7 +266,6 @@
         <button id="B_32" type="button" style="grid-area: 3/2;"></button>
         <button id="B_33" type="button" style="grid-area: 3/3;"></button>
       </div>
-
     </div>
   </body>
 </html>
