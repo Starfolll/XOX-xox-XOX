@@ -8,6 +8,6 @@ update 1:
 -added bot;
 
 
-update2:
+update 2:
 
 -inproved bot;
